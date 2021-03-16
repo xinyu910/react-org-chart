@@ -55,6 +55,9 @@ function render(config) {
     maxSubTitleWordLength = 19,
     maxCountWordLength = 17,
     getName,
+    getEmail,
+    getPhone,
+    getType,
     getTitle,
     getSubTitle,
     getCount,
@@ -111,7 +114,7 @@ function render(config) {
     .attr('stroke', borderColor)
     .attr('rx', nodeBorderRadius)
     .attr('ry', nodeBorderRadius)
-    .attr('fill-opacity', 0.05)
+    .attr('fill-opacity', 0.25)
     .attr('stroke-opacity', 0.025)
     .attr('filter', 'url(#boxShadow)')
 
@@ -150,6 +153,49 @@ function render(config) {
     .style('font-size', nameFontSize)
     .text(d => _.isFunction(getName) ? getName(d) : helpers.getName(d))
     .on('click', helpers.customOnClick(onNameClick, onClick, config))
+  
+    //Entity's Phone
+    nodeEnter
+    .append('text')
+    .attr('class', `org-chart-entity-phone unedited`)
+    .attr('x', nodeWidth/2)
+    .attr('y', 118)
+    .attr('dy', '.3em')
+    .style('cursor', 'pointer')
+    .style('fill', '#A0AEC0')
+    .style('font-size', 10)
+    .style('text-anchor', 'middle')
+    .text(d => _.isFunction(getPhone) ? getPhone(d) : helpers.getPhone(d))
+    .on('click', helpers.customOnClick(onNameClick, onClick, config))
+
+    //Entity's Email
+    nodeEnter
+    .append('text')
+    .attr('class', `org-chart-entity-email unedited`)
+    .attr('x', nodeWidth/2)
+    .attr('y', 130)
+    .attr('dy', '.3em')
+    .style('cursor', 'pointer')
+    .style('fill', '#A0AEC0')
+    .style('font-size', 10)
+    .style('text-anchor', 'middle')
+    .text(d => _.isFunction(getEmail) ? getEmail(d) : helpers.getEmail(d))
+    .on('click', helpers.customOnClick(onNameClick, onClick, config))
+
+     //Entity's Type
+     nodeEnter
+     .append('text')
+     .attr('class', `org-chart-entity-type unedited`)
+     .attr('x', nodeWidth/2)
+     .attr('y', 177)
+     .attr('dy', '.0.1em')
+     .style('cursor', 'pointer')
+     .style('fill', titleColor)
+     .style('font-size', 10)
+     .style('text-anchor', 'middle')
+     .text(d => _.isFunction(getType) ? getType(d) : helpers.getType(d))
+     .on('click', helpers.customOnClick(onNameClick, onClick, config))
+ 
 
   // Title
   nodeEnter

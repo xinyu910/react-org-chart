@@ -2,9 +2,22 @@ let _ = require('lodash')
 
 let getName = data => _.get(data, 'entity.name')
 
+let getPhone = data => _.get(data, 'entity.phone')
+
+let getEmail = data => _.get(data, 'entity.email')
+
 let getTitle = data => _.get(data, 'entity.title')
 
 let getSubTitle = data => _.get(data, 'entity.subTitle')
+
+let getType = data => {
+  let type = _.get(data, 'entity.type')
+  if (type == "Contractor") {
+    return 'CONTRACTOR'
+  } else {
+    return ''
+  }
+}
 
 let getCount = data => {
   let count = _.get(data, 'entity.totalReports')
