@@ -43,6 +43,9 @@ let customOnClick = (fn, onClick, config) => data => {
 
 module.exports = {
   getName,
+  getPhone,
+  getEmail,
+  getType,
   getTitle,
   getSubTitle,
   getCount,
