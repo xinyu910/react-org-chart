@@ -150,7 +150,7 @@ function render(config) {
     .attr('dy', '.3em')
     .style('cursor', 'pointer')
     .style('fill', nameColor)
-    .style('font-size', nameFontSize)
+    .style('font-size', 16)
     .text(d => _.isFunction(getName) ? getName(d) : helpers.getName(d))
     .on('click', helpers.customOnClick(onNameClick, onClick, config))
   
@@ -195,7 +195,22 @@ function render(config) {
      .style('text-anchor', 'middle')
      .text(d => _.isFunction(getType) ? getType(d) : helpers.getType(d))
      .on('click', helpers.customOnClick(onNameClick, onClick, config))
- 
+     nodeEnter
+     .append('rect')
+     .attr('x', 44)
+     .attr('y', 166)
+     .attr('width', 72)
+     .attr('height', 15)
+     .attr("opacity", "0.1")
+     .attr('rx',5)
+     .attr('ry',5)
+     .attr("fill", function (t) {
+      if(helpers.getType(t) == "CONTRACTOR"){
+        return "black"
+      } else {
+        return "none"
+      }
+    }),
 
   // Title
   nodeEnter
@@ -204,7 +219,7 @@ function render(config) {
     .attr('x', nodeWidth / 2)
     .attr('y', namePos.y + nodePaddingY + titleYTopDistance)
     .attr('dy', '0.1em')
-    .style('font-size', titleFontSize)
+    .style('font-size', 14)
     .style('cursor', 'pointer')
     .style('fill', titleColor)
     .text(d => _.isFunction(getTitle) ? getTitle(d) : helpers.getTitle(d))
@@ -228,7 +243,7 @@ function render(config) {
     .append('text')
     .attr('class', `${COUNTS_CLASS} unedited`)
     .attr('x', nodeWidth / 2)
-    .attr('y', namePos.y + nodePaddingY + countYTopDistance)
+    .attr('y', 180)
     .attr('dy', '.9em')
     .style('font-size', countFontSize)
     .style('font-weight', 400)
@@ -241,8 +256,8 @@ function render(config) {
   nodeEnter
     .append('image')
     .attr('id', d => `image-${d.id}`)
-    .attr('width', avatarWidth)
-    .attr('height', avatarWidth)
+    .attr('width', 70)
+    .attr('height', 70)
     .attr('x', avatarPos.x)
     .attr('y', avatarPos.y)
     .attr('stroke', borderColor)
