@@ -159,7 +159,7 @@ function render(config) {
     .append('text')
     .attr('class', `org-chart-entity-phone unedited`)
     .attr('x', nodeWidth/2)
-    .attr('y', 118)
+    .attr('y', 100)
     .attr('dy', '.3em')
     .style('cursor', 'pointer')
     .style('fill', '#A0AEC0')
@@ -173,7 +173,7 @@ function render(config) {
     .append('text')
     .attr('class', `org-chart-entity-email unedited`)
     .attr('x', nodeWidth/2)
-    .attr('y', 130)
+    .attr('y', 112)
     .attr('dy', '.3em')
     .style('cursor', 'pointer')
     .style('fill', '#A0AEC0')
@@ -187,8 +187,8 @@ function render(config) {
      .append('text')
      .attr('class', `org-chart-entity-type unedited`)
      .attr('x', nodeWidth/2)
-     .attr('y', 177)
-     .attr('dy', '.0.1em')
+     .attr('y', 155)
+     .attr('dy', '0.1em')
      .style('cursor', 'pointer')
      .style('fill', titleColor)
      .style('font-size', 10)
@@ -197,20 +197,16 @@ function render(config) {
      .on('click', helpers.customOnClick(onNameClick, onClick, config))
      nodeEnter
      .append('rect')
-     .attr('x', 44)
-     .attr('y', 166)
+     .attr('x', 35)
+     .attr('y', 145)
      .attr('width', 72)
      .attr('height', 15)
      .attr("opacity", "0.1")
      .attr('rx',5)
      .attr('ry',5)
-     .attr("fill", function (t) {
-      if(helpers.getType(t) == "CONTRACTOR"){
-        return "black"
-      } else {
-        return "none"
-      }
-    }),
+     .attr("fill", t => helpers.getType(t) == "CONTRACTOR" ? "black" : "none")
+     
+    
 
   // Title
   nodeEnter
@@ -243,7 +239,7 @@ function render(config) {
     .append('text')
     .attr('class', `${COUNTS_CLASS} unedited`)
     .attr('x', nodeWidth / 2)
-    .attr('y', 180)
+    .attr('y', 167)
     .attr('dy', '.9em')
     .style('font-size', countFontSize)
     .style('font-weight', 400)
@@ -256,8 +252,8 @@ function render(config) {
   nodeEnter
     .append('image')
     .attr('id', d => `image-${d.id}`)
-    .attr('width', 70)
-    .attr('height', 70)
+    .attr('width', avatarWidth)
+    .attr('height', avatarWidth)
     .attr('x', avatarPos.x)
     .attr('y', avatarPos.y)
     .attr('stroke', borderColor)
