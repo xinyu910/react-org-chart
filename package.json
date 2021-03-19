@@ -1,6 +1,6 @@
 {
-  "name": "@smartprocure/react-org-chart",
-  "version": "0.4.24",
+  "name": "@xinyu910/react-org-chart",
+  "version": "0.1.17",
   "description": "Simple, high-performance react component for d3 org chart",
   "main": "dist/index.js",
   "directories": {
@@ -9,10 +9,10 @@
   "files": [
     "dist/index.js"
   ],
-  "homepage": "https://smartprocure.github.io/react-org-chart",
+  "homepage": "https://xinyu910.github.io/react-org-chart",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smartprocure/react-org-chart.git"
+    "url": "git+https://github.com/xinyu910/react-org-chart.git"
   },
   "scripts": {
     "start": "webpack --watch --mode production",
@@ -21,7 +21,7 @@
     "deploy": "cd examples && npm run deploy"
   },
   "keywords": [],
-  "author": "SmartProcure, based on work of Fouad Matin <m@fouad.org> and UNICEF",
+  "author": "xinyu910, based on work of Fouad Matin <m@fouad.org> and UNICEF",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
