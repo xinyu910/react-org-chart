@@ -12,7 +12,7 @@ module.exports = function iconLink({ svg, x = 5, y = 5 }) {
     .append('g')
     .attr('id', 'icon')
     .attr('fill', '#3344DD')
-    .attr('transform', `translate(${x}, ${y})`)
+    .attr('transform', 'translate(0, 5)')
 
   const more= icon
         more.append('circle')

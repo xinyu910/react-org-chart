@@ -93,7 +93,7 @@ function render(config) {
     svg: svg,
     config,
     treeData,
-    x: 70,
+    x: nodeWidth/2,
     y: -24,
   })
 
@@ -277,8 +277,6 @@ function render(config) {
   let nodeLink = nodeEnter
     .append('a')
     .attr('class', ENTITY_LINK_CLASS)
-    .attr('display', d => (d.entity.link ? '' : 'none'))
-    .attr('xlink:href', d => d.entity.link)
     .on('click', helpers.customOnClick(onEntityLinkClick, onClick, config))
 
   iconLink({

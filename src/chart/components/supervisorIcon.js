@@ -33,7 +33,7 @@ module.exports = function supervisorIcon({
     .attr('id', 'icon')
     .attr('fill', 'none')
     .attr('fill-rule', 'evenodd')
-    .attr('transform', `translate(51.5, -46)`)
+    .attr('transform', `translate(62, -46)`)
 
   icon
     .append('circle')
